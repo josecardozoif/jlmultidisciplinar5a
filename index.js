@@ -23,6 +23,26 @@ app.get('/pessoas', async function(req, res){
   }
 });
 
+app.post('/pessoas', async function(req, res){
+  try {
+    var pessoas = await Pessoa.insert(req.body);//adição do req para poder interagir com o Post (pessoa.js)
+    res.json(pessoas.rows);
+  } catch (error) {
+    console.error('Erro ao criar novas pessoas:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao criar novas pessoas' });
+  }
+});
+
+app.delete('/pessoas', async function(req, res){
+  try {
+    var pessoas = await Pessoa.delete(req.body.id);//adição do req para poder interagir com o Delete (pessoa.js)
+    res.json(pessoas.rows);
+  } catch (error) {
+    console.error('Erro ao deletar novas pessoas:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao deletar novas pessoas' });
+  }
+});
+
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
 });
