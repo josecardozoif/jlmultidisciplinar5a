@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const Pessoa = require("./models/pessoa");
+const Produto = require("./models/produto");
 
 const app = express();
 
@@ -12,34 +12,34 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// rota pessoas
-app.get('/pessoas', async function(req, res){
+// rota produtos
+app.get('/produtos', async function(req, res){
   try {
-    var pessoas = await Pessoa.select();
-    res.json(pessoas.rows);
+    var produtos = await Produto.select();
+    res.json(produtos.rows);
   } catch (error) {
-    console.error('Erro ao buscar pessoas:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao buscar pessoas' });
+    console.error('Erro ao buscar produtos:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });
   }
 });
 
-app.post('/pessoas', async function(req, res){
+app.post('/produtos', async function(req, res){
   try {
-    var pessoas = await Pessoa.insert(req.body);//adição do req para poder interagir com o Post (pessoa.js)
-    res.json(pessoas.rows);
+    var produtos = await Produto.insert(req.body);//adição do req para poder interagir com o Post (produto.js)
+    res.json(produtos.rows);
   } catch (error) {
-    console.error('Erro ao criar novas pessoas:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao criar novas pessoas' });
+    console.error('Erro ao criar novos produtos:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao criar novos produtos' });
   }
 });
 
-app.delete('/pessoas', async function(req, res){
+app.delete('/produtos', async function(req, res){
   try {
-    var pessoas = await Pessoa.delete(req.body.id);//adição do req para poder interagir com o Delete (pessoa.js)
-    res.json(pessoas.rows);
+    var produtos = await Produto.delete(req.body.id);//adição do req para poder interagir com o Delete (produto.js)
+    res.json(produtos.rows);
   } catch (error) {
-    console.error('Erro ao deletar novas pessoas:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao deletar novas pessoas' });
+    console.error('Erro ao deletar novos produtos:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao deletar novos produtos' });
   }
 });
 
