@@ -16,11 +16,11 @@ export default function Cadastro() {
         e.preventDefault()
         
         const produto = {
-            titulo:titulo,
-            data_cadastro:data_cadastro,
-            preco:preco,
-            descricao,
-            imagem:imagem
+            titulo: titulo,
+            data_cadastro: data_cadastro,
+            preco: preco,
+            descricao: descricao,
+            imagem: imagem
         }
         const produtoJson = JSON.stringify(produto);
         fetch("http://localhost:3003/produtos", {
