@@ -6,11 +6,10 @@ import { useRouter } from 'next/navigation'
 export default function Cadastro() {
     const route = useRouter();
     const [titulo, setTitulo] = useState();
-    const [data_cadastro, setData_Cadastro] = useState();
+    const [data_cadastro, setDataCadastro] = useState();
     const [preco, setPreco] = useState();
     const [descricao, setDescricao] = useState();
     const [imagem, setImagem] = useState();
-    
 
     const cadastrar = (e) => {
         e.preventDefault()
@@ -35,31 +34,31 @@ export default function Cadastro() {
             <form  onSubmit={cadastrar}>
                 <input
                     type="text"
-                    placeholder='titulo:'
+                    placeholder='Título:'
                     nome="titulo"
                     onChange={e => setTitulo(e.target.value)}
                 /><br/>
                 <input
                     type="text"
-                    placeholder='Data_Cadastro:'
+                    placeholder='Data:'
                     nome="data_cadastro"
-                    onChange={e => setData_Cadastro(e.target.value)}
+                    onChange={e => setDataCadastro(e.target.value)}
                 /><br/>
                 <input
-                    type="number"
-                    placeholder='preco:'
+                    type="text"
+                    placeholder='Preço:'
                     nome="preco"
                     onChange={e => setPreco(e.target.value)}
                 /><br/>
                 <input
                     type="text"
-                    placeholder='descricao:'
+                    placeholder='Descrição:'
                     nome="descricao"
                     onChange={e => setDescricao(e.target.value)}
                 /><br/>
                 <input
                     type="text"
-                    placeholder='imagem:'
+                    placeholder='Imagem:'
                     nome="imagem"
                     onChange={e => setImagem(e.target.value)}
                 /><br/>
