@@ -32,6 +32,16 @@ app.post('/produtos', async function(req, res){
     res.status(500).json({ error: 'Ocorreu um erro ao criar novos produtos' });
   }
 });
+app.post('/pessoas', async function(req, res){
+  try {
+    var produtos = await Produto.selectOne(req.body.id);
+    res.json(produtos.rows[0]);
+  } catch (error) {
+    console.error('Erro ao buscar pessoas:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao buscar pessoas' });
+  }
+});
+
 
 app.delete('/produtos', async function(req, res){
   try {
@@ -43,6 +53,6 @@ app.delete('/produtos', async function(req, res){
   }
 });
 
-app.listen(3000, function() {
-  console.log('App de Exemplo escutando na porta 3000!')
+app.listen(3003, function() {
+  console.log(`App de Exemplo escutando na porta  ${3003}!`)
 });

@@ -1,22 +1,33 @@
 const db = require("../db");
 
-class Pessoa {
+class Produto {
   static async select() {
     try {
       const connect = await db.connect();
-      const sql = "select * from pessoas"
+      const sql = "SELECT * FROM produtos"
       return await connect.query(sql);
     } catch (error) {
       console.error('Erro em select:', error);
       throw error;
     }
   }
+''
+static async selectOne(codigo) {
+  try {
+    const connect = await db.connect();
+    const sql = "SELECT *FROM produtos WHERE codigo= $1";
+    return await connect.query(sql,[codigo]);
+  } catch (error) {
+    console.error('Erro em select:', error);
+    throw error;
+  }
+}
 
   static async insert(data) {
     try {
       const connect = await db.connect();
-      const sql = "INSERT INTO pessoas (nome, idade, uf) VALUES ($1, $2, $3)";//Pega o valor do array
-      const values = [data.nome, data.idade, data.uf];//O array
+      const sql = "INSERT INTO produtos (titulo, data_cadastro, preco, descricao, imagem) VALUES ($1, $2, $3, $4, $5) RETURNING codigo, titulo, data_cadastro, preco, descricao, imagem;";//Pega o valor do array
+      const values = [data.titulo, data.data_cadastro, data.preco, data.descricao, data.imagem];//O array
       return await connect.query(sql, values);
     } catch (error) {
       console.error('Erro em insert:', error);
@@ -24,11 +35,12 @@ class Pessoa {
     }
   }
 
+
   static async update(id, data) {
     try {
       const connect = await db.connect();
       const sql = "";
-      const values = [data.nome, data.idade, data.uf, id];
+      const values = [data.titulo, data.data_cadastro, data.preco, data.descricao, data.imagem];
       return await connect.query(sql, values);
     } catch (error) {
       console.error('Erro em update:', error);
@@ -40,7 +52,7 @@ class Pessoa {
   static async delete(id) {
     try {
       const connect = await db.connect();
-      const sql = "DELETE FROM pessoas WHERE id = $1;"//comando do sql para deletar pessoas
+      const sql = "DELETE FROM produtos WHERE id = $1;"//comando do sql para deletar pessoas
       return await connect.query(sql, [id]);
     } catch (error) {
       console.error('Erro em delete:', error);
@@ -49,4 +61,4 @@ class Pessoa {
   }
 }
 
-module.exports = Pessoa;
+module.exports = Produto;
