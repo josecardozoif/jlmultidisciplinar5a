@@ -31,21 +31,11 @@ app.post('/produtos', async function(req, res){
   }
 });
 
-//app.post('/produtos', async function(req, res){
- // try {
-  //  var produtos = await Produto.insert(req.body);//adição do req para poder interagir com o Post (produto.js)
-  //  res.json(produtos.rows);
-  //} catch (error) {
- //   console.error('Erro ao criar novos produtos:', error);
- //   res.status(500).json({ error: 'Ocorreu um erro ao criar novos produtos' });
- // }
-//});
-
-app.post('/pessoa', async function(req,res){
+app.post('/produtos', async function(req,res){
   try{
-    var pessoa = req.body
-    var pessoa = await Pessoa.insert(pessoa);
-    res.json(pessoa.rows)
+    var produto = req.body
+    var produto = await Produto.insert(produto);
+    res.json(produto.rows)
   }catch(error){
     console.log("error")
   }
@@ -53,17 +43,15 @@ app.post('/pessoa', async function(req,res){
 
 app.delete('/produtos', async function(req, res){
   try {
-    var produtos = await Produto.delete(req.body.id);//adição do req para poder interagir com o Delete (produto.js)
-    res.json(produtos.rows);
+    console.log(req.body.id)
+    var produto = await Produto.delete(req.body.id);
+    res.json(produto.rows);
   } catch (error) {
-    console.error('Erro ao deletar novos produtos:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao deletar novos produtos' });
+    console.error('Erro ao atualizar pessoa:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao atualizar produtos' });
   }
 });
 
-//app.listen(3000, function() {
-//  console.log('App de Exemplo escutando na porta 3000!')
-//});
 
 app.listen(3003, function() {
   console.log(`app de Exemplo escutando na porta! ${3003}`)
