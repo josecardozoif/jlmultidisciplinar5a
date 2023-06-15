@@ -21,25 +21,37 @@ app.get('/produtos', async function(req, res){
   }
 });
 
-app.post('/produtos', async function(req, res){
-  try {
-    var produto = await Produto.selectOne(req.body.id);
-    res.json(produto.rows[0]);
-  } catch (error) {
-    console.error('Erro ao buscar produtos:', error);
-    res.status(500).json({ error: 'Ocorreu um erro ao buscar produtos' });
-  }
-});
-
 app.post('/produtos', async function(req,res){
+  
   try{
+    console.log("a")
     var produto = req.body
     var produto = await Produto.insert(produto);
+    console.log("b")
     res.json(produto.rows)
   }catch(error){
     console.log("error")
   }
+  
+  try{
+    var produtos = await  Produto.selectOne(req.body.id)
+    res.json(produtos.rows[0])
+  }catch(error){
+    console.error('erro ao buscar produtos', error)
+    res.status(500).json({error:'Ocorreu um erro ao buscar produtos'})
+  }
 })
+
+app.put('/produtos', async function(req, res){
+  try {
+    var produto = await Produto.update(req.body.id, req.body);
+    res.json(produto.rows);
+  } catch (error) {
+    console.error('Erro ao atualizar produto:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao atualizar produto' });
+  }
+});
+
 
 app.delete('/produtos', async function(req, res){
   try {

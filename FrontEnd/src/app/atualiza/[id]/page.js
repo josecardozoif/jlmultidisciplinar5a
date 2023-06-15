@@ -1,9 +1,8 @@
 'use client'
 import { useState } from 'react'
-import styles from '../page.module.css'
 import { useRouter } from 'next/navigation'
 
-export default function Cadastro() {
+export default function Atualizar({params}) {
     const route = useRouter();
     const [titulo, setTitulo] = useState();
     const [data_cadastro, setData_Cadastro] = useState();
@@ -11,31 +10,37 @@ export default function Cadastro() {
     const [descricao, setDescricao] = useState();
     const [imagem, setImagem] = useState();
 
-    const cadastrar = (e) => {
-        e.preventDefault()
+   const idinteiro = parseInt(params.id)
+
+    const atualizar = () => {
+        
         
         const produto = {
             titulo: titulo,
             data_cadastro: data_cadastro,
             preco: preco,
             descricao:descricao,
-            imagem:imagem
+            imagem:imagem,
+            id: idinteiro
+       
         }
-        const produtoJson = JSON.stringify(produto);
+    const produtoJson = JSON.stringify(produto);
         fetch("http://localhost:3003/produtos", {
-            method: "POST",
+            method: "PUT",
             headers: { "content-Type": "application/json" },
             body: produtoJson
         }).then(function(){ route.push("/")}).catch(()=> console.log("Não foi possível cadastrar!"))
     }
 
+
     return (
-        <div className={styles.main}>
-            <form  onSubmit={cadastrar}>
+        <div>
+            <form onSubmit={atualizar}> 
                 <input
                     type="text"
-                    placeholder='Ttulo:'
+                    placeholder='Titulo:'
                     nome="titulo"
+                    value={titulo}
                     onChange={e => setTitulo(e.target.value)}
                 /><br/>
                 <input
@@ -58,14 +63,12 @@ export default function Cadastro() {
                 /><br/>
                  <input
                     type="text"
-                    placeholder='descricao:'
+                    placeholder='imagem:'
                     nome="imagem"
                     onChange={e => setImagem(e.target.value)}
                 /><br/>
 
-                  
-                  
-                <button type='submit'>Cadastrar</button>
+                  <button onClick={e => e.preventDefault(atualizar())}>ATUALIZAR</button>
                 <div>
                     <a href='/'>Voltar</a>
                 </div>
