@@ -28,26 +28,25 @@ export default async function Home() {
         </div>
         
 
-        <h2 class={`text-red-500 font-mono text-4xl mt-24 ml-48`}>Pizzas</h2>
-        <h1 class={`text-red-500 font-mono font-bold text-5xl ml-48`}>SALGADAS</h1>
+        <h2 class={`text-red-500 font-mono text-4xl mt-24 ml-48`}>Nosso</h2>
+        <h1 class={`text-red-500 font-mono font-bold text-5xl ml-48`}>CARDÁPIO</h1>
         <div class={`bg-red-500 w-52 h-2 mt-5 ml-48 rounded`}></div>
 
-        <div class={`grid grid-cols-2 gap-3 max-w-screen-2xl shadow-lg`}>
+        <div class={`grid grid-cols-3 gap-3 max-w-screen-2xl shadow-lg`}>
         {produtos.map(produtos => (
         <div class={`w-4/5 ml-48 mt-12 shadow-xl rounded mb-10`} key={produtos.id}>
-          <img class={`w-96 ml-28`} src={produtos.imagem}></img>
-          <p class={` text-red-500 font-semibold font-mono text-center text-3xl mt-3`}>{produtos.titulo}</p>
-          <p class={`text-red-800 h-20 font-mono text-center text-lg m-2`}>{produtos.descricao}</p>
+          <img class={`w-96 ml-2`} src={produtos.imagem}></img>
+          <p class={`font-semibold font-mono text-center text-3xl mt-3`}>{produtos.id}: {produtos.titulo}</p>
+          <p class={`h-20 font-mono text-center text-lg m-5`}>{produtos.descricao}</p>
           <div class={`flex justify-center`}>
-          <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-80 p-5 rounded-bl-lg
-        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`} href={`/produto/${produtos.id}`}>VER MAIS</Link>
-          <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-80 p-5 rounded-br-lg
-        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`} href={`/atualiza/${produtos.id}`}>ATUALIZAR</Link>
+          <Link class={`bg-zinc-300 text-center text-black text-xl font-semibold w-52 p-5 rounded-bl-lg
+        transition ease-in-out hover:bg-red-500 duration-300 hover:text-white`} href={`/produto/${produtos.id}`}>VER MAIS</Link>
+          <Link class={`bg-zinc-300 text-center text-black text-xl font-semibold w-52 p-5 rounded-br-lg
+        transition ease-in-out hover:bg-red-500 duration-300 hover:text-white`} href={`/atualiza/${produtos.id}`}>ATUALIZAR</Link>
           </div>
         </div>
       ))}
         </div>
-        
     </main>
   )
 }

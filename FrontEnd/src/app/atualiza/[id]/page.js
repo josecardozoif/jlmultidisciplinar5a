@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
 
 export default function Atualizar({params}) {
     const route = useRouter();
@@ -34,45 +35,57 @@ export default function Atualizar({params}) {
 
 
     return (
-        <div>
-            <form onSubmit={atualizar}> 
-                <input
-                    type="text"
-                    placeholder='Titulo:'
-                    nome="titulo"
-                    value={titulo}
-                    onChange={e => setTitulo(e.target.value)}
-                /><br/>
-                <input
-                    type="date"
-                    placeholder='data de cadastro:'
-                    nome="data_cadastro"
-                    onChange={e => setData_Cadastro(e.target.value)}
-                /><br/>
-                <input
-                    type="number"
-                    placeholder='preço:'
-                    nome="preco"
-                    onChange={e => setPreco(e.target.value)}
-                /><br/>
-                  <input
-                    type="text"
-                    placeholder='descricao:'
-                    nome="descricao"
-                    onChange={e => setDescricao(e.target.value)}
-                /><br/>
-                 <input
-                    type="text"
-                    placeholder='imagem:'
-                    nome="imagem"
-                    onChange={e => setImagem(e.target.value)}
-                /><br/>
+        <div class={`bg-white`}>
 
-                  <button onClick={e => e.preventDefault(atualizar())}>ATUALIZAR</button>
+        <div class={`grid justify-items-center h-80`}>
+        <img class={`w-3/5 h-3/5`} src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg'></img>
+        </div>
+
+        <h1 class={`bg-red-500 text-white font-bold font-mono text-5xl p-10 text-center mt-14`}>FREDDY FAZBEAR'S PIZZARIA</h1>
+
+        
+        <div class={`bg-red-800 flex justify-center`}>
+        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/" className='voltar'> HOME </Link>
+        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/cadastro" className='voltar'> CADASTRAR </Link>
+        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/cardapio" className='voltar'> CARDÁPIO </Link>
+        </div>
+
+        <h2 class={`text-red-500 font-mono text-4xl mt-24 ml-48`}>Realizar</h2>
+        <h1 class={`text-red-500 font-mono font-bold text-5xl ml-48`}>ATUALIZAÇÃO</h1>
+        <div class={`bg-red-500 w-72 h-2 mt-5 ml-48 rounded`}></div>
+
+        <div class={`max-w-screen-5xl mt-10`}>
+            <div class={`w-4/5 ml-48 mt-12 rounded flex justify-center`}>
+            <form class={`shadow-xl`} onSubmit={atualizar}> 
+                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`}
+                type="text" placeholder='TÍtulo:' nome="titulo" value={titulo} onChange={e => setTitulo(e.target.value)}/><br/>
+                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`}
+                type="date" placeholder='Data de Cadastro:' nome="data_cadastro" onChange={e => setData_Cadastro(e.target.value)}/><br/>
+                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`}
+                type="number" placeholder='Preço:' nome="preco" onChange={e => setPreco(e.target.value)}/><br/>
+                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+                type="text" placeholder='Descrição:'nome="descricao"onChange={e => setDescricao(e.target.value)}/><br/>
+                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`}
+                type="text" placeholder='Imagem:'nome="imagem"onChange={e => setImagem(e.target.value)}/><br/>
+
+                
+                <div class={`flex justify-center mt-12 mb-10`}>
+                <div  class={`bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-bl-lg
+        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`}>
+                <button onClick={e => e.preventDefault(atualizar())}>ATUALIZAR</button>
+                </div>
+
+                <div class={`bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-br-lg
+        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`}><a href='/'>VOLTAR</a></div>
                 <div>
-                    <a href='/'>Voltar</a>
+                </div>
                 </div>
             </form>
+            </div>
+            </div>
         </div>
     );
 }
