@@ -32,47 +32,47 @@ export default function Cadastro() {
 
     return (
 
-        <div class={`bg-white`}>
+        <div className="container mx-auto bg-white">
 
-        <div class={`grid justify-items-center h-80`}>
-        <img class={`w-3/5 h-3/5`} src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg'></img>
+        <div className="grid justify-items-center h-80`">
+        <img className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg'></img>
         </div>
 
-        <h1 class={`bg-red-500 text-white font-bold font-mono text-5xl p-10 text-center mt-14`}>FREDDY FAZBEAR'S PIZZARIA</h1>
+        <h1 className="bg-red-500 text-white font-bold font-mono text-5xl p-10 text-center mt-14">FREDDY FAZBEAR'S PIZZARIA</h1>
 
         
-        <div class={`bg-red-800 flex justify-center`}>
-        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/" className='voltar'> HOME </Link>
-        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/cadastro" className='voltar'> CADASTRAR </Link>
-        <Link class={`bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black`} href="/cardapio" className='voltar'> CARDÁPIO </Link>
+        <div className='bg-red-800 flex justify-center'>
+        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/"> HOME </Link>
+        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cadastro"> CADASTRAR </Link>
+        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
+        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cardapio"> CARDÁPIO </Link>
         </div>
 
-        <h2 class={`text-red-500 font-mono text-4xl mt-24 ml-48`}>Realizar</h2>
-        <h1 class={`text-red-500 font-mono font-bold text-5xl ml-48`}>CADASTRO</h1>
-        <div class={`bg-red-500 w-52 h-2 mt-5 ml-48 rounded`}></div>
+        <h2 className='text-red-500 font-mono text-4xl mt-24 ml-48'>Realizar</h2>
+        <h1 className='text-red-500 font-mono font-bold text-5xl ml-48'>CADASTRO</h1>
+        <div className='bg-red-500 w-52 h-2 mt-5 ml-48 rounded'></div>
 
-        <div class={`max-w-screen-5xl mt-10`}>
-            <div class={`w-4/5 ml-48 mt-12 rounded flex justify-center`}>
-            <form class={`shadow-xl`} onSubmit={cadastrar}>
-                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+        <div className="max-w-screen-5xl mt-10">
+            <div className='w-4/5 ml-48 mt-12 rounded flex justify-center'>
+            <form className='shadow-xl' onSubmit={cadastrar}>
+                <input className='bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5'
                 type="text" placeholder='Título:' nome="titulo" onChange={e => setTitulo(e.target.value)}/><br/>
-                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+                <input className='bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5' 
                 type="date" placeholder='Data de Cadastro:' nome="data_cadastro" onChange={e => setData_Cadastro(e.target.value)}/><br/>
-                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+                <input className='bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5'
                 type="number" placeholder='Preço:' nome="preco" onChange={e => setPreco(e.target.value)}/><br/>
-                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+                <input className='bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5'
                 type="text" placeholder='Descrição:' nome="descricao" onChange={e => setDescricao(e.target.value)}/><br/>
-                <input class={`bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5`} 
+                <input className='bg-zinc-300 text-black w-96 h-16 text-xl font-mono rounded mt-4 ml-4 p-5'
                 type="text" placeholder='Imagem:' nome="imagem" onChange={e => setImagem(e.target.value)}/><br/>
 
-                <div class={`flex justify-center mt-12 mb-10`}>
-                <div  class={`bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-bl-lg
-        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`}><button type='submit'>CADASTRAR</button></div>
-                <div class={`bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-br-lg
-        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black`}><a href='/'>VOLTAR</a></div>
+                <div className='flex justify-center mt-12 mb-10'>
+                <div  className='bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-bl-lg
+        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black'><button type='submit'>CADASTRAR</button></div>
+                <div className='bg-red-500 text-center text-white text-xl font-semibold w-52 p-5 rounded-br-lg
+        transition ease-in-out hover:bg-zinc-300 duration-300 hover:text-black'><a href='/'>VOLTAR</a></div>
                 </div>
             </form>
             </div>
