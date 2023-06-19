@@ -18,14 +18,14 @@ export default async function Home() {
         <h1 className='text-5xl p-10 font-bold text-center bg-red-500 text-white font-bold font-mono '>FREDDY FAZBEAR'S PIZZARIA</h1>
 
         
-        <div className=' flex justify-center  bg-red-800 '>
-        <Link className='mx-4 bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/" > HOME </Link>
-        <Link className=' mx-4 bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cadastro" > CADASTRAR </Link>
-        <Link className=' mx-4 bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cardapio"> CARDÁPIO </Link>
-        </div>
+ <nav className="flex justify-center bg-red-800">
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/"> HOME </Link>
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/cadastro"> CADASTRAR </Link>
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/cardapio"> CARDÁPIO </Link>
+</nav>
         
 
         <h2 className='text-red-500 font-mono text-4xl mt-8 ml-48'>Pizzas</h2>

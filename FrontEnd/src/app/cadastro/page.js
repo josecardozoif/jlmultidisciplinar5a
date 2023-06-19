@@ -41,14 +41,14 @@ export default function Cadastro() {
         <h1 className="bg-red-500 text-white font-bold font-mono text-5xl p-10 text-center mt-14">FREDDY FAZBEAR'S PIZZARIA</h1>
 
         
-        <div className='bg-red-800 flex justify-center'>
-        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/"> HOME </Link>
-        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cadastro"> CADASTRAR </Link>
-        <Link className='bg-red-500 text-center text-white text-xl font-semibold w-48 p-6 rounded m-2
-        transition ease-in-out hover:bg-white duration-300 hover:text-black' href="/cardapio"> CARDÁPIO </Link>
-        </div>
+        <nav className="flex justify-center bg-red-800">
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/"> HOME </Link>
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/cadastro"> CADASTRAR </Link>
+  <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
+  transition ease-in-out hover:bg-white duration-300 hover:text-black" href="/cardapio"> CARDÁPIO </Link>
+</nav>
 
         <h2 className='text-red-500 font-mono text-4xl mt-24 ml-48'>Realizar</h2>
         <h1 className='text-red-500 font-mono font-bold text-5xl ml-48'>CADASTRO</h1>
