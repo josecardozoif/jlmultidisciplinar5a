@@ -2,13 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default async function Produto({ params }) {
     const router = useRouter();
     const id = { id: parseInt(params.id) }
     const idJson = JSON.stringify(id);
 
-    const req = await fetch("http://localhost:3003/produtos", {
+    const req = await fetch("https://joselucasmultidisciplinar5a.vercel.app/produtos", {
         method: "POST",
         cache: "no-cache",
         headers: { 'content-type': 'application/json' },
@@ -21,7 +22,7 @@ export default async function Produto({ params }) {
     const remover = () => {
         console.log(idJson)
         try {
-            fetch("http://localhost:3003/produtos", {
+            fetch("https://joselucasmultidisciplinar5a.vercel.app/produtos", {
                 method: "DELETE",
                 headers: { 'content-type': 'application/json' },
                 body: idJson
@@ -35,7 +36,7 @@ export default async function Produto({ params }) {
     return (
         <div className="container mx-auto">
   <div className="container mx-auto grid justify-items-center h-80 md:flex">
-    <img className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg' alt="Imagem da pizzaria"></img>
+    <Image className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg' alt="Imagem da pizzaria"></Image>
   </div>
 
   <h1 className="font-bold text-center bg-red-500 text-white font-bold font-mono text-4xl md:text-5xl p-6 md:p-10">FREDDY FAZBEAR'S PIZZARIA</h1>
@@ -50,7 +51,7 @@ export default async function Produto({ params }) {
 </nav>
 
   <div className="flex flex-col md:flex-row items-center bg-red-500">
-    <img className="w-full md:w-1/2 h-auto mx-auto md:mr-4" src={produto.imagem} alt="Imagem do produto"></img>
+    <Image className="w-full md:w-1/2 h-auto mx-auto md:mr-4" src={produto.imagem} alt="Imagem do produto"></Image>
     <div className="w-full md:w-1/2 text-lg bg-red-500">
       <p className="text-white font-semibold font-mono text-center text-3xl py-6">PIZZA - {produto.titulo}</p>
       <div className="text-white font-mono">

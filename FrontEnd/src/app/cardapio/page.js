@@ -1,10 +1,11 @@
 "use client"
 import Link from 'next/link';
+import Image from 'next/image'
 
 
 export default async function Cardapio() {
 
-  const req = await fetch("http://localhost:3003/produtos", {
+  const req = await fetch("https://joselucasmultidisciplinar5a.vercel.app/produtos", {
     cache: "no-cache"
   });
   const produtos = await req.json();
@@ -12,7 +13,7 @@ export default async function Cardapio() {
   return (
     <main className='container mx-auto'> 
         <div className="grid justify-items-center h-80">
-        <img className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg'></img>
+        <Image className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg'></Image>
         </div>
 
         <h1 className="bg-red-500 text-white font-bold font-mono text-5xl p-10 text-center ">FREDDY FAZBEAR'S PIZZARIA</h1>
@@ -35,7 +36,7 @@ export default async function Cardapio() {
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-4 max-w-screen-2xl shadow-lg">
         {produtos.map(produtos => (
         <div className="border p-4  shadow-xl rounded mb-10" key={produtos.id}>
-          <img className="w-full h-auto mb-4" src={produtos.imagem}></img>
+          <Image className="w-full h-auto mb-4" src={produtos.imagem}></Image>
           <p className="font-semibold font-mono text-center text-3xl mt-3">{produtos.id}: {produtos.titulo}</p>
           <p className="h-20 font-mono text-center text-1xl m-5">{produtos.descricao}</p>
           <div className="flex justify-between mt-4">
