@@ -39,7 +39,7 @@ export default async function Produto({ params }) {
     <Image className="w-full max-w-xs mx-auto" src='https://i.kym-cdn.com/news/posts/original/000/002/303/cover5.jpg' alt="Imagem da pizzaria"></Image>
   </div>
 
-  <h1 className="font-bold text-center bg-red-500 text-white font-bold font-mono text-4xl md:text-5xl p-6 md:p-10">FREDDY FAZBEAR'S PIZZARIA</h1>
+  <h1 className="font-bold text-center bg-red-500 text-white font-bold font-mono text-4xl md:text-5xl p-6 md:p-10">FREDDY FAZBEAR´S PIZZARIA</h1>
 
   <nav className="flex justify-center bg-red-800">
   <Link className="mx-4 bg-red-500 text-center text-white text-lg md:text-xl font-semibold py-4 md:py-6 px-6 md:px-8 rounded m-2
